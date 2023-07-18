@@ -2,8 +2,12 @@ import streamlit as st
 import pickle
 
 # Load the pickled model
-with open('lrmodel.pkl', 'rb') as file:
-    model = pickle.load(file)
+url = 'https://github.com/himancodes/streamlit/blob/main/lrmodel.pkl'
+response = requests.get(url)
+model = pickle.loads(response.content)
+
+#with open('lrmodel.pkl', 'rb') as file:
+#    model = pickle.load(file)
 
 # Create the Streamlit web app
 st.header("Diamond Price Model")
